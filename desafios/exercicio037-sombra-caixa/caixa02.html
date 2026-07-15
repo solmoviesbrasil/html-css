@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grouping Tags</title>
+    <style>
+        header{
+            background-color: white;
+            padding: 10px;
+            margin: 0px;
+            text-align: center;
+        }
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: dimgray;
+            margin: 0px;
+        }
+        main{
+            background-color: white;
+            padding: 10px;
+            margin: 10px;
+            border-radius: 0px 10px;
+            box-shadow: 5px 4px 11px 0px rgba(0, 0, 0, 0.316);
+        }
+        h1{
+            box-shadow: inset 2px 1px 14px 6px rgba(0, 0, 0, 0.304);
+        }
+        article{
+            background-color: lightgray;
+            padding: 5px;
+        }
+        article > aside{
+            background-color: rgba(0, 0, 0, 0.489);
+        }
+        nav{
+            background-color: dimgray;
+            padding: 10px;
+            box-shadow: 4px 4px 3px 0px rgba(0, 0, 0, 0.267);
+            /* horizontal, vertical, blur e tamanho */
+            border-radius: 5px;
+        }
+        nav > a{
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            margin-right: 30px;
+            border: 1px groove black;
+            padding: 5px;
+            border-radius: 10px;
+        }
+        nav > a:hover{
+            box-shadow: inset 1px 1px 2px 4px rgba(0, 0, 0, 0.213);
+        }
+        nav > a:active{
+            color: darkblue;
+        }        
+        footer{
+            background-color: black;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+        footer > p{
+            margin: 0;
+        }
+        div#bola{
+            height: 100px;
+            width: 100px;
+            background-color: white;
+            margin-top: 10px;
+            margin-left: 10px;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+
+    <header id="cabecalho">
+
+        <h1 class="titulo-principal">Império turco otomano</h1>
+
+        <nav id="menu">
+            <a href="#">home</a>
+            <a href="#">histórias</a>
+            <a href="#">sobre</a>
+        </nav>
+
+    </header>
+
+    <!-- tema central da página -->
+    <main id="conteudo">
+        <section id="series">
+            <p>ação terror comédia slashers</p>
+        </section>
+        <section id="filmes">
+            
+            <article>
+                <h2>filmes de terror</h2>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deleniti ipsa ad animi dolorum sequi fugiat corrupti eveniet illum itaque nihil iure error est esse, ullam odio tempora assumenda odit atque!</p>
+                <aside>
+                    <p>Artigo escrito por José da Silva</p>
+                </aside>
+            </article>
+        </section>
+    </main>
+
+    <footer id="rodape">
+        <p>Desenvolvido por José da Silva</p>
+    </footer>
+    <div id="bola">
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,21 @@
+@charset "UTF-8";        
+
+
+
+body{
+    background-color: lightgoldenrodyellow;
+    font-family: smb;
+    font-size: 20px;
+    text-align: justify;
+    }
+h1 {
+    background-color:rgba(95, 158, 160, 0.744);
+        color: darkblue;
+    }
+h2{
+    color: darkred;
+    }
+@font-face {
+    font-family: smb;
+    src: url('font/\'\ Mono\ Regular.ttf');
+}

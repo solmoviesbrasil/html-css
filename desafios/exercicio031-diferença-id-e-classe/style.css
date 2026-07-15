@@ -1,0 +1,51 @@
+@charset "UTF-8";
+
+/* corpo da página */
+body{
+    background-color: rgba(0, 128, 0, 0.27);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Título principal */
+h1{
+    color: green;
+}
+
+/* 
+    em HTML é id = em css é # (só pode um elemento)
+    em HTML é class = em CSS é . (pode vários elementos)
+*/
+h1#principal{
+    background-image: linear-gradient(to right, rgba(0, 128, 0, 0.27) 70%, rgba(13, 179, 41, 0.102));  
+    text-align: center;
+    color: rgb(0, 128, 0);
+    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.752);
+    font-style: italic;
+}
+/* Sub-título de nível 2 */
+h2{
+    color: rgb(0, 39, 0);
+}
+.basico{
+    color: green;
+    font-weight: bold;
+}
+.intermediario{
+    text-align: center;
+    color: yellow;
+    font-weight: bold;
+    text-shadow: 1px 1px 1px black;
+}
+.avancado{
+    color: red;
+}
+/* Parágrafo */
+p{
+    font-size: 20px;
+}
+/* Classe destaque */
+.destaque{
+    font-size: 30px;
+    font-weight: bolder;
+    background-color: rgba(255, 255, 0, 0.337);
+}

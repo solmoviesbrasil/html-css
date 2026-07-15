@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grouping Tags</title>
+    <style>
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: dimgray;
+            margin: 0px;
+        }
+        header{
+            background-color: white;
+            padding: 10px;
+            margin: 10px;
+        }
+        nav{
+            background-color: dimgray;
+            padding: 3px;
+
+        }
+        nav > a{
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            margin-right: 30px;
+        }
+        nav > a:hover{
+            background-color: rgba(76, 68, 230, 0.99);
+            border: 1px solid rgb(16, 0, 79);
+        }
+        nav > a:active{
+            color: darkblue;
+        }
+        main{
+            background-color: white;
+            padding: 10px;
+            margin: 10px;
+        }
+        footer{
+            background-color: black;
+            color: white;
+            padding: 2px;
+            text-align: center;
+            margin: 0;
+        }
+        article{
+            background-color: lightgray;
+            padding: 5px;
+        }
+        article > aside{
+            background-color: rgba(0, 0, 0, 0.489);
+        }
+
+    </style>
+</head>
+<body>
+    <header id="cabecalho">
+
+        <h1 class="titulo-principal">Império turco otomano</h1>
+
+        <nav id="menu">
+            <a href="#">home</a>
+            <a href="#">histórias</a>
+            <a href="#">sobre</a>
+        </nav>
+
+    </header>
+
+    <!-- tema central da página -->
+    <main id="conteudo">
+        <section id="series">
+            <p>ação terror comédia slashers</p>
+        </section>
+        <section id="filmes">
+
+            <article>
+                <h2>filmes de terror</h2>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deleniti ipsa ad animi dolorum sequi fugiat corrupti eveniet illum itaque nihil iure error est esse, ullam odio tempora assumenda odit atque!</p>
+                <aside>
+                    <p>Artigo escrito por José da Silva</p>
+                </aside>
+            </article>
+
+            <article>
+                <aside>
+
+                </aside>
+            </article>
+
+        </section>
+    </main>
+
+    <footer id="rodape">
+        <p>Desenvolvido por José da Silva</p>
+    </footer>
+</body>
+</html>

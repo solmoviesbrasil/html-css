@@ -1,0 +1,140 @@
+@charset "UTF-8";
+
+/* -----------------------------
+   FONTS
+   título principal > texto > títulos do main
+   ----------------------------- */
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap');
+@font-face {
+    font-family: 'idroid';
+    src: url('../fonts/idroid.otf') format('opentype');
+}
+:root{
+    /* cor-gradient */
+    --cor-gradient: lightblue;
+    --font-titulo-header: 'Bebas Neue', Arial, Helvetica, sans-serif;
+    --font-paragrafo: 'Sora', Arial, Helvetica, sans-serif;
+    --font-titulo-main: 'idroid',Arial, Helvetica, sans-serif;
+}
+*{
+    margin: 0px;
+    padding: 0px;
+}
+body{
+
+}
+header{
+    background-image: linear-gradient(to bottom, blue, rgba(0, 0, 255, 0.856));
+    min-width: 150px;
+    box-shadow: 2px 2px 5px #0000006f;
+}
+header img{
+    border-radius: 50px;  
+
+}
+header h1{
+    font-family: var(--font-titulo-header);
+    
+    font-weight: normal;
+    font-size: 3em;
+    text-align: center;
+}
+header nav{
+    outline: 1px solid black;
+    padding: 20px;
+    text-align: center;
+}
+header a{
+    margin-right: 40px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+
+}
+header a:hover{
+    background-color: #00008b79;
+    outline: 2px groove darkblue;
+
+}
+main{
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.542);
+    background-color: white;
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+}
+main p{
+    font-family: var(--font-paragrafo);
+    text-indent: 30px;
+    text-align: justify;
+    line-height: 1.4em;
+    margin: 15px 0px;
+}
+main img{   
+    width: 100%;
+}
+aside > div:hover{
+    outline: 1px groove black;
+    border-radius: 10px 0px;
+    background-color: rgba(0, 0, 255, 0.72);
+    color: white;
+}
+aside > div{
+    margin: 30px;
+}
+h2{
+    font-family: var(--font-titulo-main);
+    font-weight: normal;
+    text-align: center;
+    background-image: linear-gradient(to right, transparent, var(--cor-gradient),var(--cor-gradient), transparent);
+}
+aside h3{
+    font-family: var(--font-titulo-main);
+    font-weight: normal;
+    background-color: blue;
+    color: white;
+    margin: -20px -20px 0px -20px;
+    padding: 20px;
+    border-radius: 10px 10px 0px 0px;
+    box-shadow: 0px 3px 5px #00000065;
+}
+aside{
+    margin-top: 15px;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px 10px 0px 0px;
+    background-color: dimgray;
+    border: 2px solid orange;
+}
+/* CLASSES */
+.imagem-media{
+    max-width: 240px;
+}
+.imagem-grande{
+    width: 100%;
+}
+aside > div{
+    max-width: 150px;
+    display: inline-block;
+}
+
+footer{
+    background-image: linear-gradient(to top, darkblue, rgb(0, 0, 255));
+    font-family: var(--font-paragrafo);
+    text-align: center;
+    padding: 20px;
+}
+footer p{
+    color: white;
+}
+footer a{
+    text-decoration: none;
+    color: white;
+}
+footer a:hover{
+    text-decoration: underline;
+    color: dimgray;
+}

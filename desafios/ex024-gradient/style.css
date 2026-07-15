@@ -1,0 +1,28 @@
+@charset "UTF-8";
+
+*{
+    font-family: bonita;
+}
+body{
+    background-image: linear-gradient(to left, #2A0048,#800080);
+}
+main{
+    background-color: white;
+    width: 600px;
+    padding: 10px;
+    margin: auto;
+    box-shadow: 10px 10px 5px black;
+    border-radius: 20px;
+}
+h1{
+    text-align: center;
+    color: #800080;
+    text-shadow: 1px 1px 2px rgb(50, 0, 50);
+}
+p{
+    font-size: 20px;
+}
+@font-face {
+    font-family: bonita;
+    src: url('font/\'\ Mono\ Regular.ttf');
+}

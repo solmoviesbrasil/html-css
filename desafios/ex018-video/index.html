@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>aprendendo a colocar vídeo</title>
+    <style>
+        body{
+            background-color:black;
+            color: whitesmoke;
+        }
+    </style>
+</head>
+<body>
+    <!--estamos fazendo uma segunda usando esse arquivo-->
+    <!--Data 21/06/2026 às 09:09 da manhã-->
+    <h1>colocando vídeos hospedados localmente</h1>
+
+    <p>Esse vídeo está hospedado no meu próprio servidor</p>
+
+    <video width="400" poster="imagens/limoes-capa.png" controls>
+        <source src="midia/Meu-Video.webm.webm" type="video/webm">
+        <source src="midia/meu-video.ogv.ogv" type="video/ogv">
+        <source src="midia/Meu-Video.mp4.mp4" type="video/mp4">
+        <p>Infelizmente seu navegador não consegue reproduzir o video acima para baixar: <a href="midia/Meu-Video.webm.webm">clique aqui</a></p>
+    </video>
+
+    <hr>
+
+    <h1>Inserindo vídeo do YouTube</h1>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/OzUnqQk4eOg?si=dgWvOVs17zlkJphb" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    <!--A tag acima não está funcionando depois tenho que resolver-->
+
+    <!--Baixo video do vimeo.com (funcionando)-->
+    <h1>Inserindo vídeo do vimeo.com</h1>
+    <iframe src="https://player.vimeo.com/video/828042?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="560" height="315" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" title="My Animation Reel"></iframe>
+
+    
+
+</body>
+</html>

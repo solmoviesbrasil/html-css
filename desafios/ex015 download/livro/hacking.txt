@@ -1,0 +1,218 @@
+/**
+ * ╔══════════════════════════════════════════════════════════════════╗
+ * ║          TypeRacer HACKER EDITION V3 — BY MANUS                  ║
+ * ║  Vibe: Ultra Fast Linux Terminal / Matrix / Persistent Hack       ║
+ * ╚══════════════════════════════════════════════════════════════════╝
+ *html -> css -> Javascript -> 
+* typescript -> Git e Github -> react -> sql  -> Node.js ou python -> react native
+ */
+
+(function () {
+  'use strict';
+
+  // --- CONFIGURAÇÃO ---
+  var WPM_DEFAULT     = 125; // WPM padrão (ajustado para ser mais seguro)
+  var WPM             = WPM_DEFAULT;
+  var MS_PER_WORD     = 60000 / WPM;
+  var CHECK_INTERVAL  = 500;
+  var MAX_WAIT_MS     = 60000;
+  var CHAR_JITTER_MS  = 5;
+  var AUTO_START      = true; // Auto-start ligado por padrão
+
+  // --- ESTADO ---
+  var botRunning  = false;
+  var botTimer    = null;
+  var originalConsoleLog = console.log;
+
+  // --- ESTILIZAÇÃO DO LOG ---
+  function log(msg, type = 'info') {
+    const colors = {
+      info: '#00FF41',
+      error: '#FF0000',
+      success: '#00FF41',
+      warn: '#FFA500'
+    };
+    originalConsoleLog(`%c[${type.toUpperCase()}] ${msg}`, `color: ${colors[type]}; font-family: monospace; font-size: 11px; font-weight: ${type === 'success' ? 'bold' : 'normal'}`);
+  }
+
+  // --- FUNÇÕES DE CONTROLE ---
+  window.setWPM = function(newWPM) {
+    if (typeof newWPM === 'number' && newWPM > 0) {
+      WPM = newWPM;
+      MS_PER_WORD = 60000 / WPM;
+      log(`WPM definido para: ${WPM}`, 'info');
+    } else {
+      log(`WPM inválido.`, 'error');
+    }
+  };
+
+  window.setAutoStart = function(on) {
+    AUTO_START = !!on;
+    log(`Auto-Start definido para: ${AUTO_START ? 'ON' : 'OFF'}`, 'info');
+  };
+
+  // --- UTILITÁRIOS DOM ---
+  var nativeValueSetter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value').set;
+
+  function dispatchKey(el, type, key, code) {
+    el.dispatchEvent(new KeyboardEvent(type, {
+      key: key,
+      code: key.length === 1 ? 'Key' + key.toUpperCase() : key,
+      keyCode: code,
+      which: code,
+      charCode: (type === 'keypress') ? code : 0,
+      bubbles: true,
+      cancelable: true
+    }));
+  }
+
+  function typeChar(el, char) {
+    var code = char.charCodeAt(0);
+    dispatchKey(el, 'keydown',  char, code);
+    dispatchKey(el, 'keypress', char, code);
+    nativeValueSetter.call(el, el.value + char);
+    el.dispatchEvent(new Event('input', { bubbles: true }));
+    dispatchKey(el, 'keyup', char, code);
+  }
+
+  function typeSpace(el) {
+    dispatchKey(el, 'keydown',  ' ', 32);
+    dispatchKey(el, 'keypress', ' ', 32);
+    nativeValueSetter.call(el, el.value + ' ');
+    el.dispatchEvent(new Event('input', { bubbles: true }));
+    dispatchKey(el, 'keyup', ' ', 32);
+  }
+
+  function sleep(ms) {
+    return new Promise(resolve => { botTimer = setTimeout(resolve, ms); });
+  }
+
+  function getInput() { return document.querySelector('input.txtInput'); }
+  function isRaceActive() { 
+    var inp = getInput(); 
+    return !!(inp && !inp.disabled && inp.offsetParent !== null); 
+  }
+
+  function getRaceText() {
+    var spans = document.querySelectorAll('span[unselectable]');
+    if (spans.length === 0) return null;
+    var text = '';
+    for (var i = 0; i < spans.length; i++) { text += spans[i].innerText; }
+    return text.trim().length > 0 ? text : null;
+  }
+
+  async function typeWord(word) {
+    var inp = getInput();
+    if (!inp) return;
+    
+    // Limpa o input antes de cada palavra para evitar erros de sincronia
+    nativeValueSetter.call(inp, '');
+    inp.dispatchEvent(new Event('input', { bubbles: true }));
+
+    var charDelay = Math.max((MS_PER_WORD / 5), 10); // Estimativa de delay por caractere
+    for (var i = 0; i < word.length; i++) {
+      if (!botRunning) return;
+      var currentInp = getInput();
+      if (!currentInp || currentInp.disabled) return;
+      
+      typeChar(currentInp, word[i]);
+      // Delay aleatório leve para parecer mais humano e evitar bloqueios
+      await sleep(charDelay + (Math.random() * 2 - 1) * CHAR_JITTER_MS);
+    }
+  }
+
+  // --- BOT PRINCIPAL ---
+  async function runBot() {
+    if (botRunning) return;
+    botRunning = true;
+    log(`Bot iniciado. WPM: ${WPM} | Auto-Start: ${AUTO_START}`, 'info');
+
+    while (botRunning) {
+      // 1. Espera a corrida começar
+      var waited = 0;
+      log("Aguardando início da corrida...", "info");
+      while (!isRaceActive()) {
+        if (!botRunning) return;
+        
+        // Se o botão "Race again" estiver visível e AUTO_START ligado, clica nele
+        if (AUTO_START) {
+          var againBtn = document.querySelector('.raceAgainLink');
+          if (againBtn && againBtn.offsetParent !== null) {
+            log("Clicando em 'Race Again'...", "info");
+            againBtn.click();
+            await sleep(2000);
+          }
+          
+          // Se estiver no menu principal, tenta entrar em uma corrida
+          var enterBtn = document.querySelector('.mainMenu .gwt-Anchor');
+          if (!againBtn && enterBtn && enterBtn.innerText.includes("Enter a Typing Race")) {
+             enterBtn.click();
+             await sleep(2000);
+          }
+        }
+
+        await sleep(CHECK_INTERVAL);
+        waited += CHECK_INTERVAL;
+        if (waited >= MAX_WAIT_MS && !isRaceActive()) {
+          log('Timeout: Nenhuma corrida ativa. Reiniciando busca...', 'warn');
+          waited = 0;
+        }
+      }
+
+      // 2. Corrida ativa, pega o texto
+      await sleep(500); // Pequeno buffer para o texto carregar totalmente
+      var raceText = getRaceText();
+      if (!raceText) {
+        log('Texto não encontrado. Tentando novamente...', 'error');
+        await sleep(1000);
+        continue;
+      }
+
+      log("Texto capturado. Iniciando digitação...", "success");
+      var words = raceText.split(/\s+/);
+      var inp = getInput();
+      if (inp) inp.focus();
+
+      for (var i = 0; i < words.length; i++) {
+        if (!botRunning || !isRaceActive()) break;
+        
+        await typeWord(words[i]);
+        
+        // Espaço após a palavra (exceto na última)
+        var currentInp = getInput();
+        if (currentInp && !currentInp.disabled) {
+          typeSpace(currentInp);
+        }
+        
+        // Pequeno delay entre palavras baseado no WPM
+        await sleep(20);
+      }
+
+      log('Corrida finalizada!', 'success');
+      
+      if (!AUTO_START) {
+        botRunning = false;
+        log('Auto-Start desligado. Bot parado.', 'info');
+      } else {
+        log('Aguardando 3 segundos para a próxima rodada...', 'info');
+        await sleep(3000);
+      }
+    }
+  }
+
+  // --- CONTROLES ---
+  window.stopBot = function () {
+    botRunning = false;
+    if (botTimer) { clearTimeout(botTimer); botTimer = null; }
+    log('Sistema desligado.', 'error');
+  };
+
+  window.startBot = function() {
+    if (!botRunning) runBot();
+    else log("Bot já está rodando.", "warn");
+  };
+
+  // Auto-inicialização
+  runBot();
+
+})();
