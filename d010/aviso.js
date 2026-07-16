@@ -1,0 +1,1 @@
+alert("👧 - Olá! Esta página terá seu domínio alterado nos próximos dias. Fique atento às nossas redes sociais.")
