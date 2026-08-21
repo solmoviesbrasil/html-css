@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projeto Cordel</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Passion+One:wght@400;700;900&display=swap');
+
+        @import url('https://fonts.googleapis.com/css2?family=Sriracha&display=swap');
+
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        :root{
+            --tamanho-texto: 3em;
+
+            --altura-linha: 2em;
+        }
+        /* cabeçalho */
+
+        header#cabecalho{           
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            font-family: 'Passion One', sans-serif;
+            background-color: black;
+            color: white;
+            min-height: 185px;
+        }
+        .header-texto{
+            text-align: center;
+        }
+        header h1{
+            padding-top: 50px;
+            font-size: 9vw;
+            font-weight: bold;
+        }
+        header p{
+            padding-bottom: 50px;
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+        /* AREA PRICIPAL */
+        main{
+            font-family: 'Sriracha', sans-serif;
+        }
+
+        /* BLOCO 1 */
+
+        .container1{
+            display: flex;
+            align-items: center;
+            min-height: 40vw;
+            font-size: 2.5vw;
+        }
+        .bloco-1{
+            padding: 0px 40px;
+            line-height: var(--altura-linha);
+        }
+
+        /* BLOCO 2 */
+        
+        .container2{
+            display: flex;
+            align-items: center;
+            min-height: 40vw;
+            background-image: url('img-cordel/background001.jpg');
+            background-position: 100% 100%;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            font-size: 2.5vw;
+        }
+        .bloco-2{
+            background-color: #00000091;
+            margin: 40px;
+            padding: 20px 0px;
+            line-height: var(--altura-linha);
+        }
+        .bloco-2 p{
+            color: white;
+        }
+        /* BLOCO 3 */
+
+        .container3{
+            display: flex;
+            align-items: center;
+            min-height: 40vw;
+            font-size: 2.5vw;
+            
+        }
+        .bloco-3{
+            margin: 0px 40px;
+            padding: 40px 0px;
+        }
+        .bloco-3 p:nth-of-type(1){
+            padding-bottom: 70px;
+        }
+
+        /* BLOCO 4 */
+
+        .container4{
+            
+            display: flex;
+            align-items: center;
+            min-height: 40vw;
+            background-image: url('img-cordel/background002.jpg');
+            background-position: 100% 100%;
+            background-attachment: fixed;
+            font-size: 2.5vw;
+        }
+        .bloco-4 p{
+            background-color: #00000091;
+            color: white;
+            margin: 0px 40px;
+        }
+        /* BLOCO 5 */
+        .container5{
+            min-height: 40vw;
+            padding: 40px 0px;
+            font-size: 2.5vw;
+        }
+        .bloco-5{
+            margin-left: 40px;
+        }
+        .bloco-5 p:nth-of-type(1){
+            padding-bottom: 50px;
+        }
+        .bloco-5 p{
+            padding: 0px 40px;
+        }
+        /* RODAPÉ */
+        footer{
+            background-color: black;
+        }
+        footer p{
+            text-align: center;
+            font-weight: bold;
+            font-size: 25px;
+            padding: 10px;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header id="cabecalho">
+        <div class="header-texto">
+            <h1>Cordel Moderno</h1>
+            <p>Por Milton Duarte</p>
+        </div>
+    </header>
+    <main>
+        <div class="container1">
+            <div class="bloco-1">
+                <p>Estou ficando cansado <br>
+                    Da tal tenologia <br>
+                    Só se fala por e-mail <br>
+                    Mensagem-curta e fria <br>
+                    Twitter e Facebook <br>
+                    Antes que eu caduque <br>
+                    Vou dizer tudo em poesia
+                </p>
+            </div>
+        </div>
+        <div class="container2">
+            <div class="bloco-2">
+                <p>Não é mais como era antes <br>
+                É tudo abreviado <br>
+                "Você" só tem duas letras <br>
+                O "O" e o "E" foi riscado <br>
+                Para declarar o amor <br>
+                Basta botar uma flor <br>
+                E um coração desenhado.</p>
+            </div>
+        </div>
+        <div class="container3">
+            <div class="bloco-3">
+                <p>Arroba agora não pesa <br>
+                É parte de um endereço <br>
+                Ponto final nem se usa <br>
+                Ou vai até no começo <br>
+                Agora é .com <br>
+                Se o saite é muito bom <br>
+                Ele vale um alto preço.</p>
+
+                <p>Pra piorar a liguagem  <br>
+                O emoticom é um risco <br>
+                Tem símbolo para tudo <br>
+                Ponto e vírgula e um asterisco <br>
+                Um beijo significa <br>
+                Pra entender como fica <br>
+                Decifre esse rabisco.</p>
+            </div>
+        </div>
+        <div class="container4">
+            <div class="bloco-4">
+                <p>Tenho saudade das cartas <br>
+                Escritas com a própria mão <br>
+                Mandava no mês de Junho <br>
+                Só chegava no Verão <br>
+                Mas matava a saudade <br>
+                Era texto de verdade <br>
+                Nas linhas do coração.</p>
+            </div>
+        </div>
+        <div class="container5">
+            <div class="bloco-5">
+                <p>Agora, escrevo e envio  <br>
+                Chegando na mesma hora <br>
+                Mas quando vou prosear <br>
+                A pessoa foi embora <br>
+                Abriu outro aplicativo <br>
+                O mundo ficou cativo <br>
+                Da tecnologia do agora.</p>
+                    
+                <p>Felizmente, pra orar <br>
+                Não precisa de internet <br>
+                Deus escuta todo mundo <br>
+                Se quiser, faça esse teste <br>
+                Dois pontos são dois joelhos <br>
+                Seus lábios são aparelhos <br>
+                Deixe que Deus interprete.</p>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>Site criado por Lucas ceo da <a href="#">Sol Movies Brasil</a></p>
+    </footer>
+</body>
+</html>
