@@ -4,8 +4,6 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Passion+One:wght@400;700;900&family=Sriracha&display=swap');
 
-@import url('https://fonts.googleapis.com/css2?family=Sriracha&display=swap');
-
 /* VARIÁVEIS */
 
 :root{
@@ -23,31 +21,31 @@
 
 /* HEADER */
 
-header#cabecalho{
+header{
+    display: flex;    
+    justify-content: center;
+    align-items: center;    
     background-color: black;
     color: white;
-
     min-height: 200px;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
-div#texto-header{
-    text-align: center;
-    font-size: 1.6em;
+#texto-header{
+    text-align: center;   
 }
 
 header h1{
     font-family: var(--font-titulo-header);
-    font-size: 2.4em;
+    font-size: 3.7em;
     font-variant: small-caps;
 }
  
 header p{
+    font-size: 1.6em;
     font-weight: bold;
 }
+
+/* LINK GLOBAL */
 
 a{
     color: white;
@@ -59,27 +57,6 @@ a:hover{
     text-decoration: underline;
 }
 
-/* CLASSES */
-
-.img-fundo{
-    background-position: center;
-    background-size: cover;
-    background-attachment: fixed;
-}
-.card{
-
-    margin: 0 20px;
-    padding: 20px;
-
-    line-height: 60px;
-    max-width: 400px;
-}
-
-.fundo-caixa{
-    display: inline-block;
-    background-color: rgba(0, 0, 0, 0.57);
-}
-
 /* SECTION GENERICA */
 
 section{
@@ -89,19 +66,16 @@ section{
 
 section p{
     font-family: var(--font-paragrafos);
-
     font-size: 2em;
 }
 
-section#sessao2-imagem{
+#sessao2-imagem{
     background-image: url('../fotos/background001.jpg');
-
     color: white;
 }
 
-section#sessao4-imagem{
+#sessao4-imagem{
     background-image: url('../fotos/background002.jpg');
-
     color: white;
 }
 
@@ -110,10 +84,29 @@ section#sessao4-imagem{
 footer{
     background-color: black;
     color: white;
-
     padding: 20px;
 }
 
 footer p{
     text-align: center;
-} 
+}
+
+/* CLASSES */
+
+.card{
+    margin: 0 20px;
+    padding: 20px;
+    line-height: 60px;
+    max-width: 400px;
+}
+
+.fundo-caixa{
+    display: inline-block;
+    background-color: rgba(0, 0, 0, 0.57);
+}
+
+.img-fundo{
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+}
